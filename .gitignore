@@ -1,0 +1,14 @@
+*.dll
+packages/*
+ClubManagement/ClubManagement/bin/*
+ClubManagement/ClubManagement/obj/*
+ClubManagement/ClubManagement.Droid/bin/*
+ClubManagement/ClubManagement.Droid/obj/*
+ClubManagement/ClubManagement.iOS/bin/*
+ClubManagement/ClubManagement.iOS/obj/*
+ClubManagement/ClubManagement.UWP/bin/*
+ClubManagement/ClubManagement.UWP/obj/*
+ClubManagement/ClubManagement.Windows/bin/*
+ClubManagement/ClubManagement.Windows/obj/*
+ClubManagement/ClubManagement.WinPhone/bin/*
+ClubManagement/ClubManagement.WinPhone/obj/*
