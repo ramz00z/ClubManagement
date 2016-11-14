@@ -1,5 +1,6 @@
 *.dll
 packages/*
+.vs/*
 ClubManagement/ClubManagement/bin/*
 ClubManagement/ClubManagement/obj/*
 ClubManagement/ClubManagement.Droid/bin/*
