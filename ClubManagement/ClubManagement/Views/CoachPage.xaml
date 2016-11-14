@@ -23,7 +23,7 @@
       <ListView ItemsSource="{Binding ScheduleList}">
         <ListView.ItemTemplate>
           <DataTemplate>
-            <TextCell Text="{Binding Title}" Detail="{Binding Type}" />
+            <TextCell Text="{Binding Title}" Detail="{Binding Type}"/>
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>

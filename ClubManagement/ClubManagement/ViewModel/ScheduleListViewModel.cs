@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using ClubManagement.Model;
 using System.Windows.Input;
 using Xamarin.Forms;
+using ClubManagement.Business;
 
 namespace ClubManagement.ViewModel
 {
@@ -19,6 +20,11 @@ namespace ClubManagement.ViewModel
         public ScheduleListViewModel()
         {
             scheduleList = new ObservableCollection<Schedule>();
+            var schedules = ScheduleBusiness.GetSchedules();
+            foreach (var schedule in schedules)
+            {
+                scheduleList.Add(schedule);
+            }
         }
     }
 }

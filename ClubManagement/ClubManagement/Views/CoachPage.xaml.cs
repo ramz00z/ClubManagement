@@ -21,6 +21,11 @@ namespace ClubManagement.Views
             {
                 await Navigation.PushAsync(new AddSchedulePage((ScheduleListViewModel)(Content.BindingContext)));
             };
+
+            ScheduleTextCell.Clicked += (sender, args) =>
+            {
+                await Navigation.PushAsync(new AddSchedulePage((ScheduleListViewModel)(Content.BindingContext)));
+            };
         }
     }
 }

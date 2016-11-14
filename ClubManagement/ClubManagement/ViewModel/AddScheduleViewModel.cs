@@ -1,4 +1,5 @@
-﻿using ClubManagement.Model;
+﻿using ClubManagement.Business;
+using ClubManagement.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace ClubManagement.ViewModel
     public class AddScheduleViewModel : ViewModelBase
     {
         #region Fields
+        private int id;
         private string texte;
         private string title;
         private string type;
@@ -104,14 +106,17 @@ namespace ClubManagement.ViewModel
 
         private void CreateSchedule()
         {
-            scheduleListViewModel.ScheduleList.Add(new Schedule
+            var schedule = new Schedule
             {
+                Id = id,
                 Title = Title,
                 Team = Team,
                 Type = Type,
                 EndDateTime = EndDateTime,
                 StartDateTime = StartDateTime
-            });
+            };
+            ScheduleBusiness.InsertSchedule(schedule);
+            scheduleListViewModel.ScheduleList.Add(schedule);
         }
 
         private void ChangeTexte()
