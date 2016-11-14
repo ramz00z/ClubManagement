@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClubManagement.MainPage">
+  <StackLayout VerticalOptions="Center" HorizontalOptions="Fill" Padding="10" Spacing="10">
+    <Button Text="President" x:Name="PresidentButton" HorizontalOptions="Fill"/>
+    <Button Text="Coach" x:Name="CoachButton" HorizontalOptions="Fill"/>
+  </StackLayout>
+</ContentPage>

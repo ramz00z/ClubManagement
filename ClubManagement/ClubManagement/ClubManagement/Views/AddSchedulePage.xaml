@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:local="clr-namespace:ClubManagement.ViewModel;assembly=ClubManagement"
+  x:Class="ClubManagement.Views.AddSchedulePage">
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+  </ContentPage.Padding>
+  <StackLayout>
+    <TableView Intent="Form">
+      
+      <TableRoot Title="Data Form">
+        <TableSection Title="Personal Information">
+          <EntryCell Label="Title:" Text="{Binding Title}" Placeholder="Enter title" Keyboard="Text" />
+          <EntryCell Label="Type:" Text="{Binding Type}" Placeholder="Enter type" Keyboard="Text" />
+          <EntryCell Label="Team:" Text="{Binding Team}" Placeholder="Enter team" Keyboard="Text" />
+          <EntryCell Label="Start time:" Text="{Binding StartDateTime}" Placeholder="Enter start time" Keyboard="Text" />
+          <EntryCell Label="End time:" Text="{Binding EndDateTime}" Placeholder="Enter end time" Keyboard="Text" />
+        </TableSection>
+      </TableRoot>
+    </TableView>
+    <Label VerticalOptions="CenterAndExpand" Text="{Binding Texte}" />
+    <Button Text="Submit" HorizontalOptions="Center" Command="{Binding CreateScheduleCommand}" />
+  </StackLayout>
+</ContentPage>
