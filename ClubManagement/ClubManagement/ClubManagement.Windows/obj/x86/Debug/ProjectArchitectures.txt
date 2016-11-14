@@ -1,2 +1,0 @@
-C:\Users\ramz\Documents\_Git\ClubManagement\ClubManagement\ClubManagement\ClubManagement.Windows\ClubManagement.Windows.csproj;x86
-C:\Users\ramz\Documents\_Git\ClubManagement\ClubManagement\ClubManagement\ClubManagement\ClubManagement.csproj;neutral
