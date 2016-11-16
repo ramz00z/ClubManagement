@@ -9,8 +9,8 @@ namespace ClubManagement.ViewModel
 {
     public class ScheduleListViewModel : ViewModelBase
     {
-        private ObservableCollection<Schedule> scheduleList;
-        public ObservableCollection<Schedule> ScheduleList
+        private ObservableCollection<ScheduleViewModelBase> scheduleList;
+        public ObservableCollection<ScheduleViewModelBase> ScheduleList
         {
             get { return scheduleList; }
 
@@ -19,11 +19,20 @@ namespace ClubManagement.ViewModel
 
         public ScheduleListViewModel()
         {
-            scheduleList = new ObservableCollection<Schedule>();
+            scheduleList = new ObservableCollection<ScheduleViewModelBase>();
             var schedules = ScheduleBusiness.GetSchedules();
             foreach (var schedule in schedules)
             {
-                scheduleList.Add(schedule);
+                var s = new ScheduleViewModelBase
+                {
+                    Id = schedule.Id,
+                    Title = schedule.Title,
+                    Team = schedule.Team,
+                    Type = schedule.Type,
+                    StartDateTime = schedule.StartDateTime,
+                    EndDateTime = schedule.EndDateTime
+                };
+                scheduleList.Add(s);
             }
         }
     }

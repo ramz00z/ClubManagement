@@ -10,93 +10,17 @@ using Xamarin.Forms;
 
 namespace ClubManagement.ViewModel
 {
-    public class AddScheduleViewModel : ViewModelBase
+    public class AddScheduleViewModel : ScheduleViewModelBase
     {
-        #region Fields
-        private int id;
-        private string texte;
-        private string title;
-        private string type;
-        private string team;
-        private DateTime startDateTime;
-        private DateTime endDateTime;
-        private ScheduleListViewModel scheduleListViewModel;
-        #endregion
-
-        #region Properties
-        public string Title
-        {
-            get
-            {
-                return title;
-            }
-            set
-            {
-                SetProperty(ref title, value);
-            }
-        }
-        public string Texte
-        {
-            get
-            {
-                return texte;
-            }
-            set
-            {
-                SetProperty(ref texte, value);
-            }
-        }
-        public string Type
-        {
-            get
-            {
-                return type;
-            }
-            set
-            {
-                SetProperty(ref type, value);
-            }
-        }
-        public string Team
-        {
-            get
-            {
-                return team;
-            }
-            set
-            {
-                SetProperty(ref team, value);
-            }
-        }
-        public DateTime StartDateTime
-        {
-            get
-            {
-                return startDateTime;
-            }
-            set
-            {
-                SetProperty(ref startDateTime, value);
-            }
-        }
-        public DateTime EndDateTime
-        {
-            get
-            {
-                return endDateTime;
-            }
-            set
-            {
-                SetProperty(ref endDateTime, value);
-            }
-        }
         public ICommand CreateScheduleCommand { get; }
-        #endregion
+        protected ScheduleListViewModel scheduleListViewModel;
 
         #region Methods
         public AddScheduleViewModel()
         {
             CreateScheduleCommand = new Command(CreateSchedule);
+            startDateTime = DateTime.Now;
+            endDateTime = DateTime.Now;
         }
 
         public AddScheduleViewModel(ScheduleListViewModel slvm) : this()
@@ -108,7 +32,6 @@ namespace ClubManagement.ViewModel
         {
             var schedule = new Schedule
             {
-                Id = id,
                 Title = Title,
                 Team = Team,
                 Type = Type,
@@ -116,12 +39,8 @@ namespace ClubManagement.ViewModel
                 StartDateTime = StartDateTime
             };
             ScheduleBusiness.InsertSchedule(schedule);
-            scheduleListViewModel.ScheduleList.Add(schedule);
-        }
-
-        private void ChangeTexte()
-        {
-            Texte = $"Schedule {Title} of type {Type} was created.";
+            ScheduleViewModelBase svmb = ObjectMapper.Map<Schedule, ScheduleViewModelBase>(schedule);
+            scheduleListViewModel.ScheduleList.Add(svmb);
         }
         #endregion
     }

@@ -21,11 +21,22 @@ namespace ClubManagement.Views
             {
                 await Navigation.PushAsync(new AddSchedulePage((ScheduleListViewModel)(Content.BindingContext)));
             };
+        }
 
-            ScheduleTextCell.Clicked += (sender, args) =>
+        public void OnModify(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+            var schedule = mi.CommandParameter as ScheduleViewModelBase;
+            Navigation.PushModalAsync(new ModifySchedulePage(new ModifyScheduleViewModel
             {
-                await Navigation.PushAsync(new AddSchedulePage((ScheduleListViewModel)(Content.BindingContext)));
-            };
+                Id = schedule.Id,
+                Title = schedule.Title,
+                Team = schedule.Team,
+                Type = schedule.Type,
+                StartDateTime = schedule.StartDateTime,
+                EndDateTime = schedule.EndDateTime
+            }));
+            DisplayAlert("More Context Action", mi.CommandParameter + " more context action", "OK");
         }
     }
 }

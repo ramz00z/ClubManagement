@@ -36,16 +36,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Business\ObjectMapper.cs" />
     <Compile Include="Business\DbHelper.cs" />
     <Compile Include="Business\ScheduleBusiness.cs" />
     <Compile Include="Contract\IData.cs" />
     <Compile Include="Contract\ISqLite.cs" />
+    <Compile Include="ViewModel\ModifyScheduleViewModel.cs" />
     <Compile Include="ViewModel\AddScheduleViewModel.cs" />
+    <Compile Include="ViewModel\ScheduleViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\NamedColor.cs" />
     <Compile Include="ViewModel\TextCellListCodePage.cs" />
     <Compile Include="ViewModel\ScheduleListViewModel.cs" />
     <Compile Include="Model\Schedule.cs" />
+    <Compile Include="Views\ModifySchedulePage.xaml.cs">
+      <DependentUpon>ModifySchedulePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddSchedulePage.xaml.cs">
       <DependentUpon>AddSchedulePage.xaml</DependentUpon>
     </Compile>
@@ -59,8 +65,15 @@
     <Compile Include="Views\PresidentPage.xaml.cs">
       <DependentUpon>PresidentPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Common\SchedulePageCommon.xaml.cs">
+      <DependentUpon>SchedulePageCommon.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.5.1.1\lib\portable-net45+win8+wpa81\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\sqlite-net-pcl.1.2.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
       <Private>True</Private>
@@ -101,7 +114,12 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Common\SchedulePageCommon.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\PresidentPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -110,6 +128,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\AddSchedulePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ModifySchedulePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

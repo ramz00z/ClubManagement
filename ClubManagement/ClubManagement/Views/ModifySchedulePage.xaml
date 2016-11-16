@@ -4,12 +4,12 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:local="clr-namespace:ClubManagement.ViewModel;assembly=ClubManagement"
   xmlns:commonViews="clr-namespace:ClubManagement.Views.Common;assembly=ClubManagement"
-  x:Class="ClubManagement.Views.AddSchedulePage">
+  x:Class="ClubManagement.Views.ModifySchedulePage">
   <ContentPage.Padding>
     <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
   </ContentPage.Padding>
   <StackLayout>
     <commonViews:SchedulePageCommon/>
-    <Button Text="Submit" HorizontalOptions="Center" Command="{Binding CreateScheduleCommand}" />
+    <Button Text="Submit" HorizontalOptions="Center" Command="{Binding ModifyScheduleCommand}" />
   </StackLayout>
 </ContentPage>

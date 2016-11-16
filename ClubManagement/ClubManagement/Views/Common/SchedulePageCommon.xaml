@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClubManagement.Views.Common.SchedulePageCommon">
+  <TableView Intent="Form">
+    <TableRoot Title="Data Form">
+      <TableSection Title="Schedule">
+        <EntryCell Label="Title:" Text="{Binding Title}" Placeholder="Enter title" Keyboard="Text" />
+        <EntryCell Label="Type:" Text="{Binding Type}" Placeholder="Enter type" Keyboard="Text" />
+        <EntryCell Label="Team:" Text="{Binding Team}" Placeholder="Enter team" Keyboard="Text" />
+        <ViewCell>
+          <DatePicker VerticalOptions="CenterAndExpand" Date="{Binding StartDateTime}">
+            <DatePicker.Format>ddd dd MMM HH:mm</DatePicker.Format>
+          </DatePicker>
+        </ViewCell>
+        <ViewCell>
+          <DatePicker VerticalOptions="CenterAndExpand" Date="{Binding EndDateTime}">
+            <DatePicker.Format>ddd dd MMM HH:mm</DatePicker.Format>
+          </DatePicker>
+        </ViewCell>
+      </TableSection>
+    </TableRoot>
+  </TableView>
+  <Label VerticalOptions="CenterAndExpand" Text="{Binding Texte}" />
+</StackLayout>
