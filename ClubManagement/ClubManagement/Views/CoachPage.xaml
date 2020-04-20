@@ -3,10 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModel = "clr-namespace:ClubManagement.ViewModel;assembly=ClubManagement"
              x:Class="ClubManagement.Views.CoachPage">
-  <ContentPage.BindingContext>
-    <viewModel:ScheduleListViewModel />
-  </ContentPage.BindingContext>
-  <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill" Padding="10" Spacing="10">
+    <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill" Padding="10" Spacing="10">
     <!-- Header -->
     <StackLayout Orientation="Horizontal">
       <StackLayout Orientation="Vertical">
@@ -25,8 +22,7 @@
           <DataTemplate>
             <ViewCell>
               <ViewCell.ContextActions>
-                <MenuItem Clicked="OnModify" CommandParameter="{Binding .}"
-                   Text="Modify" />
+                <MenuItem Clicked="OnModify" Text="Modify" />
               </ViewCell.ContextActions>
               <StackLayout Orientation="Horizontal">
                 <StackLayout>

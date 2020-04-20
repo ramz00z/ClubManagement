@@ -1,9 +1,6 @@
-﻿using System.Linq;
+﻿using ClubManagement.Business;
 using System.Collections.ObjectModel;
-using ClubManagement.Model;
 using System.Windows.Input;
-using Xamarin.Forms;
-using ClubManagement.Business;
 
 namespace ClubManagement.ViewModel
 {
@@ -12,16 +9,17 @@ namespace ClubManagement.ViewModel
         private ObservableCollection<ScheduleViewModelBase> scheduleList;
         public ObservableCollection<ScheduleViewModelBase> ScheduleList
         {
-            get { return scheduleList; }
+            get => scheduleList;
 
-            set { SetProperty(ref scheduleList, value); }
+            set => SetProperty(ref scheduleList, value);
         }
+        public ICommand ModifyScheduleCommand { get; }
 
         public ScheduleListViewModel()
         {
             scheduleList = new ObservableCollection<ScheduleViewModelBase>();
-            var schedules = ScheduleBusiness.GetSchedules();
-            foreach (var schedule in schedules)
+            System.Linq.IQueryable<Model.Schedule> schedules = ScheduleBusiness.GetSchedules();
+            foreach (Model.Schedule schedule in schedules)
             {
                 var s = new ScheduleViewModelBase
                 {

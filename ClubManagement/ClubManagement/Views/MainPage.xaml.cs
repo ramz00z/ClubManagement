@@ -1,9 +1,5 @@
-﻿using ClubManagement.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ClubManagement.ViewModel;
+using ClubManagement.Views;
 
 using Xamarin.Forms;
 
@@ -17,7 +13,7 @@ namespace ClubManagement
 
             PresidentButton.Clicked += (sender, args) => { Navigation.PushAsync(new PresidentPage()); };
 
-            CoachButton.Clicked += (sender, args) => { Navigation.PushAsync(new CoachPage()); };
+            CoachButton.Clicked += (sender, args) => { Navigation.PushAsync(new CoachPage(new ScheduleListViewModel())); };
         }
     }
 }

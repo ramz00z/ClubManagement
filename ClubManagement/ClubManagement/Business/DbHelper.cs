@@ -124,9 +124,9 @@ namespace ClubManagement.Business
         /// Get all schedules objects
         /// </summary>
         /// <returns>A list of schedules</returns>
-        public List<Schedule> GetSchedules()
+        public IQueryable<Schedule> GetSchedules()
         {
-            return (from i in Connection .Table<Schedule>() select i).ToList();
+            return Connection.Table<Schedule>().AsQueryable();
         }
         public void UpdateSchedule(Schedule schedule)
         {

@@ -10,6 +10,11 @@ namespace ClubManagement.Business
 {
     public static class ObjectMapper
     {
+        static ObjectMapper()
+        {
+            Initialize();
+        }
+
         public static void Initialize()
         {
             Mapper.Initialize(cfg => CreateConfiguration(cfg));
